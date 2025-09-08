@@ -15,7 +15,7 @@ steps:
       password:
         from_secret: docker_password
   
-   - name: Build Proxy DB
+  - name: Build Proxy DB
     image: woodpeckerci/plugin-docker-buildx:6.0.0
     settings:
       registry: http://registry.kisoft.me/v2
