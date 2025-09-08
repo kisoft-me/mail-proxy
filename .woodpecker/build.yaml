@@ -8,7 +8,7 @@ steps:
     settings:
       registry: http://registry.kisoft.me/v2
       repo: registry.kisoft.me/mail-proxy
-      dockerfile: proxy/dockerfile
+      dockerfile: proxy/Dockerfile
       auto_tag: true
       username:
         from_secret: docker_username
@@ -20,7 +20,7 @@ steps:
     settings:
       registry: http://registry.kisoft.me/v2
       repo: registry.kisoft.me/mail-proxy-db
-      dockerfile: proxy/dockerfile
+      dockerfile: db/Dockerfile
       auto_tag: true
       username:
         from_secret: docker_username
@@ -33,7 +33,7 @@ steps:
     settings:
       registry: http://registry.kisoft.me/v2
       repo: registry.kisoft.me/mail-proxy-scripts
-      dockerfile: php/dockerfile
+      dockerfile: php/Dockerfile
       auto_tag: true
       username:
         from_secret: docker_username
