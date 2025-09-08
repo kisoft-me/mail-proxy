@@ -1,0 +1,41 @@
+when:
+  - event: push
+    branch: master
+
+steps:
+  - name: Build Proxy
+    image: woodpeckerci/plugin-docker-buildx:6.0.0
+    settings:
+      registry: http://registry.kisoft.me/v2
+      repo: registry.kisoft.me/mail-proxy
+      dockerfile: proxy/dockerfile
+      auto_tag: true
+      username:
+        from_secret: docker_username
+      password:
+        from_secret: docker_password
+  
+   - name: Build Proxy DB
+    image: woodpeckerci/plugin-docker-buildx:6.0.0
+    settings:
+      registry: http://registry.kisoft.me/v2
+      repo: registry.kisoft.me/mail-proxy-db
+      dockerfile: proxy/dockerfile
+      auto_tag: true
+      username:
+        from_secret: docker_username
+      password:
+        from_secret: docker_password
+  
+  
+  - name: Build Proxy Scripts
+    image: woodpeckerci/plugin-docker-buildx:6.0.0
+    settings:
+      registry: http://registry.kisoft.me/v2
+      repo: registry.kisoft.me/mail-proxy-scripts
+      dockerfile: php/dockerfile
+      auto_tag: true
+      username:
+        from_secret: docker_username
+      password:
+        from_secret: docker_password
