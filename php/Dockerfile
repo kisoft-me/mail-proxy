@@ -1,5 +1,5 @@
 FROM php:8.4-fpm
-RUN apt-get update && apt-get install -y libc-client2007e-dev libkrb5-dev && rm -r /var/lib/apt/lists/*
+RUN apt update && apt install -f -y uw-mailutils libkrb5-dev && rm -r /var/lib/apt/lists/*
 RUN pecl install imap && docker-php-ext-enable imap
 RUN docker-php-ext-install mysqli pdo pdo_mysql
 RUN mv "$PHP_INI_DIR/php.ini-development" "$PHP_INI_DIR/php.ini"
