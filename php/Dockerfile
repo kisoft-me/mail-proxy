@@ -11,3 +11,5 @@ RUN sed -i "s/max_input_time = 30/max_input_time = 3000/" "$PHP_INI_DIR/php.ini"
 RUN sed -i "s/memory_limit = 128M/memory_limit = 512M/" "$PHP_INI_DIR/php.ini"
 RUN sed -i "s/post_max_size = 8M/post_max_size = 64M/" "$PHP_INI_DIR/php.ini"
 RUN sed -i "s/upload_max_filesize = 2M/upload_max_filesize = 64M/" "$PHP_INI_DIR/php.ini"
+COPY ./web /var/www/html
+COPY ./cms /var/www/cms
