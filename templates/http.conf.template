@@ -33,9 +33,9 @@ http {
     resolver_timeout       2s;
 
     server {
-        listen 80;
+        listen 8080;
         index index.php index.html;
-        server_name ${DOMAIN};
+        server_name _;
         error_log  /var/log/nginx/error.log;
         access_log /var/log/nginx/access.log;
         root /var/www/html;
@@ -52,9 +52,9 @@ http {
     }
 
     server {
-        listen 80;
+        listen 8081;
         index index.php index.html;
-        server_name admin.${DOMAIN};
+        server_name _;
         error_log  /var/log/nginx/error.log;
         access_log /var/log/nginx/access.log;
         root /var/www/cms;
